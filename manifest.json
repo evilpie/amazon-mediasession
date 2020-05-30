@@ -1,0 +1,11 @@
+{
+  "description": "This extension adds support for the MediaSession API to amazon.music.de. This allows controlling and displaying the current song.",
+  "manifest_version": 2,
+  "name": "Amazon Music (DE) MediaSession Polyfill",
+  "version": "0.1",
+  "content_scripts": [{
+    "matches": ["https://music.amazon.de/*"],
+    "js": ["content-script.js"],
+    "run_at": "document_idle"
+  }]
+}
