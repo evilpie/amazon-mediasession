@@ -20,10 +20,19 @@ function run() {
   let handler = function() {
     let current = amznMusic.widgets.player.getCurrent();
 
+    let artwork = Object.entries(current.album).flatMap(([key, value]) => {
+      if (!key.startsWith('image')) {
+        return [];
+      }
+
+      return {src: value};
+    });
+
     mediaSession.metadata = new MediaMetadata({
       title: current.title,
       artist: current.artist.name,
-      album: current.album.title
+      album: current.album.title,
+      artwork
     });
   }
 
